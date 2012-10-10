@@ -1,0 +1,9 @@
+<% if current_user.organization_profile.is_admin? %>
+	<!-- new users -->
+	<h3 class="muted">New Users Awaiting Approval &nbsp; <span class="badge badge-warning"><%= @users_awaiting_approval.size %></span></h3>
+	<hr>
+	<% if @users_awaiting_approval.size > 0 %>
+		<%= render :partial => "users/list_table", :locals => {:users => @users_awaiting_approval} %>
+	<% end %>
+	<br>
+<% end %>

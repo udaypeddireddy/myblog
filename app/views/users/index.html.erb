@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h1>Users</h1>
+  <%= link_to 'New User', new_user_path, :class => "btn btn-primary pull-right button-up"  %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>+</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Admin</th>
+      <th>Active</th>
+      <th>Last login</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+  <% @users.each_with_index do |user,i| %>
+      <tr>
+         <td><%= i+1 %></td>
+         <td><%= user.firstname %></td>
+         <td><%= user.is_active? ? "√" : "No" %></td>
+         <td><%= user.is_active? ? "√" : "No" %></td>
+         <td></td><td></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

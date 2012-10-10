@@ -1,0 +1,80 @@
+<%= form_tag sessions_path,{:onsubmit=>"return select();"} do %>
+
+       
+
+<script type="text/javascript">
+
+function signup(link)
+{
+  window.location.href =link;
+}
+
+
+function select()
+{
+
+var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+var email = document.getElementById("email").value; 
+
+
+ 
+if(email=="")
+ { 
+   alert("Please Enter Email");
+   document.getElementById("email").focus();
+   return false;
+ }
+ 
+ else if (reg.test(email) == false)
+ {
+ 
+ alert("Please Enter Valid Email");
+
+ return false;  
+ }
+ 
+else if (document.getElementById("password").value=="")
+{
+    alert("Please Enter Password")
+    document.getElementById("password").focus();
+    
+    return false;
+}
+
+
+}
+</script>
+
+
+                                            
+
+<span class="label label-success"><%= notice %></span>
+
+<form class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Email</label>
+    <div class="controls">
+    
+      <%= text_field_tag :email, params[:email] %>
+    </div>
+  </div>
+  <div class="control-group">
+<label class="control-label" for="inputPassword">Password</label>
+<div class="controls">
+<%= password_field_tag :password %>
+</div>
+</div>
+<div class="control-group">
+<div class="controls">
+ <%= submit_tag "Sgin in", :class=>"btn"  %> 
+<% if notice !="Signed up!" %>&nbsp;&nbsp;
+<%= link_to "SignUp", new_user_path %>
+</div>
+</div>
+</form>
+<% end %>
+<% end %>
+
+
+

@@ -1,0 +1,13 @@
+<p>
+<b>entry</b>
+<%= entry.subject%>
+<%= link_to 'readmore', entry_path(entry) %>
+</p>
+
+<p>
+<b>body</b>
+<%= truncate entry.body, :length => 20 %>
+</p>
+<%=render "comments/form" %>
+
+

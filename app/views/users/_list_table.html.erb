@@ -1,0 +1,58 @@
+<!-- user approval script -->
+<script type="text/javascript">
+  $(document).ready(function() {
+    var approval_radios = $('#user_is_approved_true, #user_is_approved_false');
+
+    approval_radios.click(function() {
+        $(this).parents('form').submit();
+    });
+    approval_radios.parents('form').bind('ajax:success', function() {
+        $(this).closest('tr').fadeOut();  
+    }); 
+});
+</script>
+<!-- users list table -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>+</th>
+      <th>First name</th>
+      <th>Last name</th>
+		  <th>Admin</th>
+      <th>Active</th>
+      <% if params[:controller].eql?("home") && current_user.is_admin? %>
+        <th><span class="label label-warning">- Approval -</span></th>
+      <% else %>
+        <th>Approved</t>
+      <% end %>
+      </th>
+      <th>Last login</th>
+      <th>Org Profile</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% users.each_with_index do |user,i| %>
+    	<tr>
+         <td><%= i+1 %></td>
+	       <td><%= user.firstname %></td>
+	       <td><%= link_to_if current_user.is_admin?, user.lastname, edit_user_path(user) %></td>
+	       <td><%= user.organization_profile.is_admin? ? "√" : "No" %></td>
+         <td><%= user.is_active? ? "√" : "No" %></td>
+          <% if current_user.organization_profile.is_admin?  %>
+            <td>
+              <%= form_for(user, :remote => true) do |f| %>
+                <%= f.radio_button :is_approved, "true", :checked => user.is_approved? %> Yes
+                <%= f.radio_button :is_approved, "false", :checked => !user.is_approved? %> No
+                <!-- other hidden values -->
+                <%= f.hidden_field :approved_by, :value => current_user.id %>
+              <% end %>
+            </td>
+          <% else %>
+            <td ><%= user.is_approved? ? "√" : "No" %></td>
+          <% end %>
+        <td><%= user.last_login %>
+         <td><%= link_to_if current_user.organization_profile.is_admin?, "-Edit Profile-" %></td>
+	    </tr>
+	<% end %>
+  </tbody>
+</table>
