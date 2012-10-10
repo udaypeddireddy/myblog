@@ -1,4 +1,4 @@
-Bapps::Application.routes.draw do
+Myblog::Application.routes.draw do
  #match "/hello(.:format)"=>"samples#mymethod",:constraints=>{:user_agent=>/Firefox/},:as=> :hello
 
 resources :users
