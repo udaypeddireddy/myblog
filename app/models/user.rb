@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
 attr_accessible	:email, :firstname, :lastname, :password_reset, :is_active, :password
 
-has_one :organization_profile
+has_one :orgnization_profile
 before_create :setdefault_pwd
 
 scope :awaiting_approval, lambda{ where("is_approved = ?", false)}
