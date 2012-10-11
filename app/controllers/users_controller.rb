@@ -2,7 +2,11 @@ class UsersController < ApplicationController
 
 skip_before_filter :require_login 
 def index
+  if is_admin?
   @users = User.all
+ else
+
+  redirect_to categories_path, notice: 'You Are Not Authorized'
  end
 
   def show
