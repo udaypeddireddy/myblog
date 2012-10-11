@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 skip_before_filter :require_login 
 def index
-  if is_admin?
+  if current_user.orgnization_profile.is_admin?
   @users = User.all
  else
 
