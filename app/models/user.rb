@@ -4,6 +4,7 @@ attr_accessible	:email, :firstname, :lastname, :password_reset, :is_active, :pas
 
 has_one :orgnization_profile
 before_create :setdefault_pwd
+after_create :signup_email
 
 scope :awaiting_approval, lambda{ where("is_approved = ?", false)}
 
@@ -32,6 +33,10 @@ end
 
   def full_name
   "#{firstname} #{lastname}"
+  end
+
+  def signup_email
+    UserMailer.registration(self).deliver
   end
 
 

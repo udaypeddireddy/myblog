@@ -33,7 +33,7 @@ def index
     @org = OrgnizationProfile.new
     @org.user_id = @user.id
     @org.save
-    UserMailer.registration(@user).deliver
+    
     redirect_to login_path, notice: 'Registered Successfully Please Check Your Inbox For Password' 
     else
     render action: "new"
