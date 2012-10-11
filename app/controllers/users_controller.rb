@@ -30,7 +30,7 @@ def index
   def create
     @user = User.new(params[:user])
     if @user.save
-    @org = OrganizationProfile.new
+    @org = OrgnizationProfile.new
     @org.user_id = @user.id
     @org.save
     UserMailer.registration(@user).deliver
