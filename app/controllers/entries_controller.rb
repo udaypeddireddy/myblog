@@ -27,7 +27,7 @@ class EntriesController < ApplicationController
   # GET /entries/new
   # GET /entries/new.json
   def new
-    
+    @category = Category.find(params[:category_id])
     @entry = Entry.new
 
     respond_to do |format|

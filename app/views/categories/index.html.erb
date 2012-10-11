@@ -17,6 +17,7 @@
 	<td>
 <b><%= link_to category.name ,category_entries_path(category) %></b>
 </td>
+<td><b><%= link_to 'Add Entry', new_category_entry_path(category) %><b></td>
 <td>
 Total-Entries&nbsp;
 <span class="badge badge-warning"><%= category.entries.size %></span>

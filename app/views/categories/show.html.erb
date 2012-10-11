@@ -1,11 +1,14 @@
-
-</br></br>
-
-<div align="center">
-<p><b>Category:</b></p>
-<%= @category.name %>
-<p>
-<%= link_to 'Add Entry', new_entry_path %>
-<%= link_to 'Edit', edit_category_path(@category) %> | 
-<%= link_to 'Back', categories_path %></p>
+<div class="page-header">
+	<h1>Category</h1>
+    
+    <%= link_to 'Categories', categories_path,  :class => "btn btn-primary pull-right button-up" %>
 </div>
+
+<b style="color:green"><%= notice %></b>
+<%= @category.name %>
+
+<%= link_to 'Add Entry', new_category_entry_path(@category) %>||
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+
+

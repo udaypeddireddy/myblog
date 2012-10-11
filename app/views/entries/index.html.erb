@@ -6,13 +6,16 @@
 <% @entries.each do |post| %>
     <div class="well well-large">
     <h4><%= link_to post.subject,category_entry_path(@category,post) %></h4>
-   Total-Comments &nbsp;
+
+   <h5>Total-Comments &nbsp;
    <span class="badge badge-warning"><%= post.comments.size %></span>
-   </br>
-    <%= post.body %>
-	<%= time_ago_in_words post.created_at %>...ago
+  </h5>
+
+  <%= post.body %>
+  </br>
+	Posted <%= time_ago_in_words post.created_at %>...ago 
   </div>
-  <% end %>
+<% end %>
  
 
 		
