@@ -7,7 +7,7 @@ if user
 session[:user_id] = user.id
 redirect_to categories_path, :notice => "Logged in!"
 else
-   redirect_to root_path, :notice=>"Invalid Email or Password"
+   redirect_to login_path, :notice=>"Invalid Email or Password"
 end
 end
 def destroy
