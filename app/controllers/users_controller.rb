@@ -2,11 +2,10 @@ class UsersController < ApplicationController
 
 skip_before_filter :require_login 
 def index
-  if current_user.orgnization_profile.is_admin?
-  @users = User.all
- else
+ @user_count = User.where("last_login < ?", 5.seconds.ago).count
 
-  redirect_to categories_path, notice: 'You Are Not Authorized'
+  @users = User.all
+ 
  end
 
   def show

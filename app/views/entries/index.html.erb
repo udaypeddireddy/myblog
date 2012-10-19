@@ -1,7 +1,12 @@
 <div class="page-header">
-  <h2>Entries</h2>
+  <h2>Entries</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <h3 class="muted">Total-Entries&nbsp;
+<span class="badge badge-warning"><%= @entries.size %></span></h3>
   <%= link_to 'New Entry',new_category_entry_path, :class => "btn btn-primary pull-right button-up"  %>
 </div>
+
+
+
 
 <% @entries.each do |post| %>
     <div class="well well-large">

@@ -11,10 +11,10 @@
 <hr>
 
 <% @entry.comments.each do|comment| %>
-<p>commented by: <b><%= comment_user(comment.user_id) %></b></p>
+<p>commented by: <b> <span class="label label-success"><%= comment_user(comment.user_id) %></span></b></p>
 <p><%= comment.comment %></p>
 <p><%= time_ago_in_words comment.created_at %> ago...</p>
-<% if current_user.organization_profile.is_admin? %>
+<% if current_user.orgnization_profile.is_admin? %>
 <p><%= link_to "delete comment", [@entry,comment], :method => :delete, :confirm => "are you sure?" %></p> 
 <% end %>
 <hr>
@@ -27,9 +27,4 @@
 <p><%= com.submit "post comment", {:class => "btn btn-primary btn-indent pull-center"} %></p>
 <% end %>
 <p>
-<%= link_to 'Back',entries_path %>
-||
-<%= link_to 'edit',edit_entry_path(@entry)%>
-||
-<%= link_to 'delete',@entry,:method => :delete, :confirm => "are you sure?" %></p>
 

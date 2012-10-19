@@ -52,14 +52,13 @@ ActiveRecord::Schema.define(:version => 20121011044325) do
     t.string   "lastname"
     t.string   "email"
     t.boolean  "is_active"
+    t.string   "password"
     t.boolean  "password_reset"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.time     "last_login"
-    t.string   "user_type"
+    t.datetime "last_login",     :default => '2012-10-19 17:36:54'
     t.boolean  "is_approved"
     t.integer  "approved_by"
-    t.string   "password"
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
   end
 
 end

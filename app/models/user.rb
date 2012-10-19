@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-attr_accessible	:email, :firstname, :lastname, :password_reset, :is_active, :password
+attr_accessible	:email, :firstname, :lastname, :password_reset, :is_active, :password, :last_login
 
 has_one :orgnization_profile
 before_create :setdefault_pwd
@@ -15,7 +15,7 @@ end
 
 
  def is_admin?
-    organization_profile.is_admin?
+    orgnization_profile.is_admin?
  end
 
 

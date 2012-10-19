@@ -1,20 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+ <span class="label label-info"><%= @user.full_name %></span>
+  <%= link_to 'Users', users_path, :class => "btn btn-primary pull-right button-up"  %>
 
+</div>
 <p>
-  <b>Id:</b>
-  <%= @login.id %>
-</p>
 
-<p>
-  <b>Username:</b>
-  <%= @login.username %>
-</p>
+<table class="table table-striped">
+<thead>
+<tr>
+	<th>Firstname</th>
+	<th>Lasttname</th>
+    <th>Email</th>
+    <th>Active</th>
+    <th>Approved</th>
+    <th>Approved By</th>
+    <th>Last-Login</th>
+    <th>Password-Reset</th>
+</tr> 
+</thead>
+<tbody>
+<tr>
+  
+<td><%= @user.firstname %></td>
+<td><%= @user.lastname %> </td>
+<td><%= @user.email %></td>
+<td><%= @user.is_active? ? "√" : "No" %></td>
+<td><%= @user.is_approved? ? "√" : "No" %></td>
+<td><%= @user.approved_by %></td>
+<td><%= @user.last_login %></td>
+<td><%= @user.password_reset? ? "√" : "No" %></td>
 
-<p>
-  <b>Password:</b>
-  <%= @login.password %>
-</p>
+</tr>
+</tbody>
+</table>
 
 
-<%= link_to 'Edit', edit_login_path(@login) %> |
-<%= link_to 'Back', logins_path %>
+
+

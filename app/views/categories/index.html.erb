@@ -7,14 +7,16 @@
 
 </br></br>
 <h3 class="muted">Total Categories &nbsp; <span class="badge badge-warning"><%= @categories.size %></span></h3>
-<hr>
+
 
 
 
 <table class="table table-striped">
-<% @categories.each do |category| %>
+<% @categories.each_with_index do |category,i| %>
 <tr>
-	<td>
+<td>&nbsp;</td>
+<td><%= i+1 %> </td>
+<td>
 <b><%= link_to category.name ,category_entries_path(category) %></b>
 </td>
 <td><b><%= link_to 'Add Entry', new_category_entry_path(category) %><b></td>

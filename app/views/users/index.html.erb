@@ -9,8 +9,8 @@
       <th>+</th>
       <th>First name</th>
       <th>Last name</th>
-      <th>Admin</th>
       <th>Active</th>
+      <th>Admin</th>
       <th>Last login</th>
       
     </tr>
@@ -20,8 +20,10 @@
       <tr>
          <td><%= i+1 %></td>
          <td><%= user.firstname %></td>
+         <td><%= link_to user.lastname, user_path(user) %></td>
          <td><%= user.is_active? ? "√" : "No" %></td>
-         <td><%= user.is_active? ? "√" : "No" %></td>
+         <td><%= user.orgnization_profile.is_admin? ? "√" : "No" %></td>
+         <td><%= user.last_login  %></td>
          <td></td><td></td>
       </tr>
   <% end %>
