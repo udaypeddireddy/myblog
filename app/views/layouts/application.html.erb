@@ -8,22 +8,17 @@
 </head>
 <body>
 
-<div class="navbar">
+<div class="navbar navbar-inverse">
   <div class="navbar-inner">
    
     <ul class="nav">
       <li class="active"><%= link_to 'Home', categories_path %></li>
        <li><%= link_to 'Categories', categories_path %></li>
+       <li><%= link_to 'Dashboard' %></li>
        <li><%= link_to 'logout', logout_path %></li>
     </ul>
   </div>
 </div>
-
-
-
 <%= yield %>
-
-
-
 </body>
 </html>

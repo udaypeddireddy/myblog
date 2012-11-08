@@ -1,4 +1,4 @@
-<% if current_user.organization_profile.is_admin? %>
+<% if current_user.orgnization_profile.is_admin? %>
 	<!-- new users -->
 	<h3 class="muted">New Users Awaiting Approval &nbsp; <span class="badge badge-warning"><%= @users_awaiting_approval.size %></span></h3>
 	<hr>
@@ -7,3 +7,13 @@
 	<% end %>
 	<br>
 <% end %>
+
+<!-- new categories -->
+
+<h3 class="muted">Recently Added Categories &nbsp; <span class="badge badge-warning"><%= @posts_recent.size %></span></h3>
+	<hr>
+<% @posts_recent.each do |cat| %>
+
+<p><%= cat.name %> &nbsp;&nbsp; <%= time_ago_in_words cat.created_at %> ago</p>
+<% end %>
+

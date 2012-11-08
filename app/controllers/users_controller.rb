@@ -1,12 +1,9 @@
 class UsersController < ApplicationController
 
-skip_before_filter :require_login 
+skip_before_filter :require_login , :only => [:new, :create]
 def index
- @user_count = User.where("last_login < ?", 5.seconds.ago).count
-
   @users = User.all
- 
- end
+end
 
   def show
     @user = User.find(params[:id])

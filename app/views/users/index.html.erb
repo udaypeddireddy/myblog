@@ -3,6 +3,9 @@
   <%= link_to 'New User', new_user_path, :class => "btn btn-primary pull-right button-up"  %>
 </div>
 
+ <h3 class="muted">Total-Users&nbsp;
+<span class="badge badge-warning"><%= @users.size %></span></h3>
+ 
 <table class="table table-striped">
   <thead>
     <tr>
@@ -29,3 +32,4 @@
   <% end %>
   </tbody>
 </table>
+
