@@ -29,6 +29,7 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.0)
     coffee-rails (3.2.2)
@@ -54,7 +55,9 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.17.2)
     multi_json (1.1.0)
+    mysql2 (0.3.11)
     mysql2 (0.3.11-x86-mingw32)
+    pg (0.13.2)
     pg (0.13.2-x86-mingw32)
     polyglot (0.3.3)
     rack (1.4.1)
@@ -102,6 +105,7 @@ GEM
       multi_json (>= 1.0.2)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES

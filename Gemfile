@@ -7,7 +7,6 @@ gem 'rails', '3.2.1'
 
 gem 'mysql2'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -26,7 +25,7 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem 'jquery-rails'
 
 group :production do
-gem 'pg'
+  gem 'pg'
 end
 
 #gem 'twitter-bootstrap-rails'
